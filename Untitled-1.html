@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+<!-- Firebase App (non-modular) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Dark Mode</title>
@@ -240,6 +249,28 @@
             transition: transform 0.3s ease;
         }
 
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .star {
+            font-size: 2em;
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .star:hover,
+        .star:hover~.star {
+            color: #ffdb3a;
+        }
+
+        .star.selected {
+            color: #ffdb3a;
+        }
+
         #disclaimer-box {
             position: absolute;
             top: 50%;
@@ -414,6 +445,7 @@
         }
     </style>
     <script>
+
         document.addEventListener('DOMContentLoaded', function () {
             function updateTime() {
                 const timezoneElement = document.getElementById('timezone');
@@ -523,9 +555,17 @@
                     <p>Available Upon Request</p>
                 </div>
                 <div class="card">
-                    <h3>Availability</h3>
-                    <p>Commissions Open</p>
+                    <h3>Ratings</h3>
+                    <div class="rating">
+                        <span class="star" data-value="5">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="1">&#9733;</span>
+                    </div>
+                    <p id="rating-stats">Average Rating: 0 (0 ratings)</p>
                 </div>
+
             </div>
         </div>
 
@@ -609,6 +649,62 @@
             <p><strong>Roblox Profile: <a href="https://www.roblox.com/users/your-profile-id/profile" target="_blank"
                         style="font-weight: bold; text-decoration: none;">Baconxfy</a></strong></p>
         </div>
+        <script>
+            // Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyC_JlYWIfLoqVE-9W4qrFlrHsktXw_rSzA",
+                authDomain: "portfolio-ratings.firebaseapp.com",
+                projectId: "portfolio-ratings",
+                storageBucket: "portfolio-ratings.appspot.com",
+                messagingSenderId: "740267567079",
+                appId: "1:740267567079:web:f89ddd67dd40f55b96bf42"
+            };
+        
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+        
+            // Handle Ratings
+            document.querySelectorAll('.star').forEach(function(star) {
+                star.addEventListener('click', function() {
+                    var ratingValue = star.getAttribute('data-value');
+                    var userId = localStorage.getItem('userId') || Math.random().toString(36).substring(2);
+                    localStorage.setItem('userId', userId);
+        
+                    // Check if the user has rated before
+                    db.collection('ratings').doc(userId).get().then(function(doc) {
+                        if (doc.exists) {
+                            db.collection('ratings').doc(userId).update({ rating: ratingValue });
+                        } else {
+                            db.collection('ratings').doc(userId).set({ rating: ratingValue });
+                        }
+        
+                        updateRatingStats();
+                    });
+                });
+            });
+        
+            // Update Rating Stats
+            function updateRatingStats() {
+                db.collection('ratings').get().then(function(querySnapshot) {
+                    var totalRatings = 0;
+                    var ratingSum = 0;
+        
+                    querySnapshot.forEach(function(doc) {
+                        totalRatings++;
+                        ratingSum += parseInt(doc.data().rating);
+                    });
+        
+                    var avgRating = ratingSum / totalRatings;
+                    document.getElementById('rating-stats').innerText = 'Average Rating: ' + avgRating.toFixed(1) + ' (from ' + totalRatings + ' ratings)';
+                });
+            }
+        
+            // Initial call to update rating stats
+            updateRatingStats();
+        </script>
+        
+        
 
 </body>
 
