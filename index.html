@@ -169,6 +169,10 @@
             flex-direction: column;
             justify-content: center;
             aspect-ratio: 1/1;
+            width: 250px; /* Adjust width for squarer look */
+    height: 250px; /* Adjust height to match width */
+    margin: 10px auto;
+    transition: transform 0.2s ease-in-out;
             /* Ensures square shape */
         }
 
@@ -299,6 +303,18 @@
         .star.selected {
             color: #ff4444;
             /* Ensure selected star color stays illuminated */
+        }
+
+        .star:hover,
+        .star:hover~.star {
+            color: #ff6347;
+            /* your chosen hover color */
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+            /* enlarges the star on hover */
+            transition: transform 0.2s ease-in-out;
         }
 
 
@@ -728,22 +744,12 @@
                     var userId = localStorage.getItem('userId') || Math.random().toString(36).substring(2);
                     localStorage.setItem('userId', userId);
 
-                    // Update star UI based on rating
-                    document.querySelectorAll('.star').forEach(function (s) {
-                        s.classList.remove('selected');
-                    });
-                    for (let i = 0; i < ratingValue; i++) {
-                        document.querySelectorAll('.star')[i].classList.add('selected');
-                    }
-
-                    // Store rating in the database
                     db.collection('ratings').doc(userId).get().then(function (doc) {
-                        if (doc.exists) {
-                            db.collection('ratings').doc(userId).update({ rating: ratingValue });
+                        if (doc.exists && doc.data().rating == ratingValue) {
+                            db.collection('ratings').doc(userId).delete(); // Remove rating if same star clicked
                         } else {
                             db.collection('ratings').doc(userId).set({ rating: ratingValue });
                         }
-
                         updateRatingStats();
                     });
                 });
