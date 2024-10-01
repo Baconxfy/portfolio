@@ -281,48 +281,37 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        .star.selected,
-        .star:hover,
-        .star:hover~.star {
-            color: #ff4444;
-            /* Red stars */
-        }
+        /* Default star appearance */
+.star {
+    color: #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
 
-        .star:hover,
-        .star:hover~.star {
-            color: #ccc;
-            /* Reset the color of stars on hover */
-        }
+/* Hover effect: illuminate stars from left to right */
+.star:hover,
+.star:hover ~ .star {
+    color: #ff4444; /* Red stars */
+}
 
-        .star:hover,
-        .star~.star:hover {
-            color: #ff4444;
-            /* Illuminate correct stars from left to right */
-        }
+/* Selected stars should stay illuminated */
+.star.selected {
+    color: #ff4444; /* Selected star color */
+}
 
-        .star.selected {
-            color: #ff4444;
-            /* Ensure selected star color stays illuminated */
-        }
+/* Enlarge the star being hovered over */
+.star:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+}
 
-        .star:hover,
-        .star:hover~.star {
-            color: #ff6347;
-            /* your chosen hover color */
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-            /* enlarges the star on hover */
-            transition: transform 0.2s ease-in-out;
-        }
 
 
         #rating-stats {
             color: #ffcc00;
             /* Gold text */
             font-weight: bold;
-            font-size: 1.4em;
+            font-size: 1.1em;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
 
