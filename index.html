@@ -169,8 +169,8 @@
             flex-direction: column;
             justify-content: center;
             aspect-ratio: 1/1;
-            width: 250px; /* Adjust width for squarer look */
-    height: 250px; /* Adjust height to match width */
+            width: 150px; /* Adjust width for squarer look */
+    height: 150; /* Adjust height to match width */
     margin: 10px auto;
     transition: transform 0.2s ease-in-out;
             /* Ensures square shape */
@@ -284,7 +284,7 @@
         .star.selected,
         .star:hover,
         .star:hover~.star {
-            color: #ff4444;
+            color: #ff2424;
             /* Red stars */
         }
 
@@ -306,8 +306,8 @@
         }
 
         .star:hover,
-        .star:hover~.star {
-            color: #ff6347;
+        .star~.star:hover {
+            color: #ff4444;
             /* your chosen hover color */
         }
 
