@@ -996,43 +996,18 @@
                 updateRatingStats(); // Update stats when the page loads
             });
             
-            document.addEventListener('DOMContentLoaded', function () {
-    const testimonyContainer = document.querySelector('.testimonies-container');
+            document.addEventListener('DOMContentLoaded', function() {
+    const testimonyContainer = document.querySelector('.testimonies-wrapper');
     const testimonies = document.querySelectorAll('.testimony-card');
-    let currentIndex = 0;
-    const visibleCards = 4;
-    const scrollSpeed = 3000; // Scroll speed in milliseconds
+    const totalTestimonies = testimonies.length;
 
-    // Clone all the cards to create an infinite loop effect
-    testimonies.forEach(card => {
-        const clone = card.cloneNode(true);
+    // Clone each card and append it to the end for seamless looping
+    for (let i = 0; i < totalTestimonies; i++) {
+        const clone = testimonies[i].cloneNode(true);
         testimonyContainer.appendChild(clone);
-    });
-
-    // Auto-scroll function for seamless effect
-    function autoScroll() {
-        currentIndex++;
-        const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
-
-        testimonyContainer.scrollBy({
-            left: scrollWidth,
-            behavior: 'smooth',
-        });
-
-        // Check if it's the last card, reset scroll without noticeable jump
-        if (currentIndex >= testimonies.length) {
-            setTimeout(() => {
-                testimonyContainer.scrollTo({
-                    left: 0,
-                    behavior: 'auto', // Instantly reset to the beginning
-                });
-                currentIndex = 0;
-            }, 500); // Delay for smoothness
-        }
     }
-
-    setInterval(autoScroll, scrollSpeed);
 });
+
 
 
         </script>
