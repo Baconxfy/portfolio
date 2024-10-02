@@ -427,13 +427,14 @@
         }
 
         .testimonies-container {
-    display: flex;
+            display: flex;
     gap: 20px;
-    overflow-x:auto;
+    overflow: hidden; /* Hide scrollbar */
     white-space: nowrap;
     padding: 20px 0;
     scroll-behavior: smooth;
     z-index: 1;
+    
 }
 
 .testimony-card {
@@ -981,41 +982,44 @@
                 updateRatingStats(); // Update stats when the page loads
             });
             
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
     const testimonyContainer = document.querySelector('.testimonies-container');
     const testimonies = document.querySelectorAll('.testimony-card');
     let currentIndex = 0;
     const visibleCards = 4;
     const scrollSpeed = 3000; // Scroll speed in milliseconds
-    
-    // Clone the first few cards for a seamless loop
-    testimonies.forEach((card, index) => {
-        if (index < visibleCards) {
-            const clone = card.cloneNode(true);
-            testimonyContainer.appendChild(clone);
-        }
+
+    // Clone all the cards to create an infinite loop effect
+    testimonies.forEach(card => {
+        const clone = card.cloneNode(true);
+        testimonyContainer.appendChild(clone);
     });
 
-    // Auto-scroll function
+    // Auto-scroll function for seamless effect
     function autoScroll() {
-        const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
         currentIndex++;
-        if (currentIndex > testimonies.length) {
-            testimonyContainer.scrollTo({
-                left: 0,
-                behavior: 'smooth',
-            });
-            currentIndex = 1; // Reset the scroll
-        } else {
-            testimonyContainer.scrollBy({
-                left: scrollWidth,
-                behavior: 'smooth',
-            });
+        const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
+
+        testimonyContainer.scrollBy({
+            left: scrollWidth,
+            behavior: 'smooth',
+        });
+
+        // Check if it's the last card, reset scroll without noticeable jump
+        if (currentIndex >= testimonies.length) {
+            setTimeout(() => {
+                testimonyContainer.scrollTo({
+                    left: 0,
+                    behavior: 'auto', // Instantly reset to the beginning
+                });
+                currentIndex = 0;
+            }, 500); // Delay for smoothness
         }
     }
 
     setInterval(autoScroll, scrollSpeed);
 });
+
 
         </script>
 
