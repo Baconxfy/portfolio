@@ -531,7 +531,7 @@
 .testimonies-container, .specialization-container, .portfolio {
     position: relative;
     overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black -5%, black 100%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 100%, transparent);
 }
 
 
@@ -724,35 +724,33 @@
 
         <div class="section">
             <h2>My Specializations</h2>
-            <div class="fade-container">
-                <div class="specialization-container">
-                    <div class="specialization">
-                        <div class="card">
-                            <h3>Combat Systems</h3>
-                            <p><strong>Designing and scripting dynamic combat mechanics for engaging player
-                                    experiences.</strong></p>
-                        </div>
-                        <div class="card">
-                            <h3>UI Scripting</h3>
-                            <p><strong>Creating intuitive and responsive interfaces that enhance user
-                                    interaction.</strong>
-                            </p>
-                        </div>
-                        <div class="card">
-                            <h3>Game State Management</h3>
-                            <p><strong>Building efficient systems for managing game states and ensuring smooth
-                                    gameplay.</strong></p>
-                        </div>
-                        <div class="card">
-                            <h3>AI Development</h3>
-                            <p><strong>Creating intelligent and responsive AI behaviors for dynamic gameplay
-                                    experiences.</strong></p>
-                        </div>
-                        <div class="card">
-                            <h3>Multiplayer Systems</h3>
-                            <p><strong>Designing and implementing robust multiplayer systems for seamless online
-                                    interactions.</strong></p>
-                        </div>
+            <div class="specialization-container">
+                <div class="specialization">
+                    <div class="card">
+                        <h3>Combat Systems</h3>
+                        <p><strong>Designing and scripting dynamic combat mechanics for engaging player
+                                experiences.</strong></p>
+                    </div>
+                    <div class="card">
+                        <h3>UI Scripting</h3>
+                        <p><strong>Creating intuitive and responsive interfaces that enhance user
+                                interaction.</strong>
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Game State Management</h3>
+                        <p><strong>Building efficient systems for managing game states and ensuring smooth
+                                gameplay.</strong></p>
+                    </div>
+                    <div class="card">
+                        <h3>AI Development</h3>
+                        <p><strong>Creating intelligent and responsive AI behaviors for dynamic gameplay
+                                experiences.</strong></p>
+                    </div>
+                    <div class="card">
+                        <h3>Multiplayer Systems</h3>
+                        <p><strong>Designing and implementing robust multiplayer systems for seamless online
+                                interactions.</strong></p>
                     </div>
                 </div>
             </div>
@@ -764,152 +762,147 @@
         <div class="section">
             <h2 class="section-header">Past Works</h2> <!-- Header remains visible and unaffected by blur -->
 
-            <!-- Portfolio section that gets blurred -->
-            <div class="fade-container">
-                <div id="portfolio-section" class="portfolio">
-                    <div id="blur-background"> <!-- Wrap blur content -->
-                        <!-- Past work cards -->
-                        <div class="card">
-                            <h4>Project Title 1</h4>
-                            <img src="your-project-image-url" alt="Project 1">
-                            <p>Brief description of the project.</p>
-                        </div>
-                        <div class="card">
-                            <h4>Project Title 2</h4>
-                            <img src="your-project-image-url" alt="Project 2">
-                            <p>Brief description of the project.</p>
-                        </div>
-                        <div class="card">
-                            <h4>Project Title 3</h4>
-                            <video src="your-project-video-url" controls></video>
-                            <p>Brief description of the project.</p>
-                        </div>
+            <div id="portfolio-section" class="portfolio">
+                <div id="blur-background"> <!-- Wrap blur content -->
+                    <!-- Past work cards -->
+                    <div class="card">
+                        <h4>Project Title 1</h4>
+                        <img src="your-project-image-url" alt="Project 1">
+                        <p>Brief description of the project.</p>
                     </div>
-    
-                    <!-- Disclaimer Box -->
-                    <div id="disclaimer-box" class="disclaimer">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="disclaimer-checkbox" onclick="togglePortfolio()">
-                            <span class="checkmark"></span>
-                            <span class="disclaimer-text">I understand that these pastworks only demonstrate my scripting
-                                ability and all other aspects of these projects are not made by me.</span>
-                        </label>
+                    <div class="card">
+                        <h4>Project Title 2</h4>
+                        <img src="your-project-image-url" alt="Project 2">
+                        <p>Brief description of the project.</p>
                     </div>
-                </div> <!-- Correct closing for portfolio section -->
-            </div>
+                    <div class="card">
+                        <h4>Project Title 3</h4>
+                        <video src="your-project-video-url" controls></video>
+                        <p>Brief description of the project.</p>
+                    </div>
+                </div>
+
+                <!-- Disclaimer Box -->
+                <div id="disclaimer-box" class="disclaimer">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="disclaimer-checkbox" onclick="togglePortfolio()">
+                        <span class="checkmark"></span>
+                        <span class="disclaimer-text">I understand that these pastworks only demonstrate my scripting
+                            ability and all other aspects of these projects are not made by me.</span>
+                    </label>
+                </div>
+            </div> <!-- Correct closing for portfolio section -->
 
         </div> <!-- Correct closing for past works section -->
         <button id="load-more">Load More</button>
 
         <div class="section">
             <h2 class="section-header">Testimonies</h2>
-            <div class="fade-container">
-                <div class="testimonies-container">
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
+            <div class="testimonies-container">
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
                     </div>
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
-                    </div>
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
-                    </div>
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
-                    </div>
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
-                    </div>
-                    <div class="testimony-card">
-                        <div class="testimony-content">
-                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
-                                alt="Profile Picture" class="profile-pic">
-                            <h4>baconxfy
-                                <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
-                                        alt="link icon" class="link-icon">
-                                </a>
-                            </h4>
-                        </div>
-                        <p class="testimony-quote">
-                            <span class="blue-quote">"</span>
-                            This is the testimony or quote from the user.
-                            <span class="blue-quote">"</span>
-                        </p>
-                    </div>
-    
-                    <!-- Add more testimony cards here -->
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
                 </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                            alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                    alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+
+                <!-- Add more testimony cards here -->
             </div>
         </div>
 
