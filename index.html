@@ -981,38 +981,42 @@
                 updateRatingStats(); // Update stats when the page loads
             });
             
-
             document.addEventListener('DOMContentLoaded', function() {
-        const testimonyContainer = document.querySelector('.testimonies-container');
-        const testimonies = document.querySelectorAll('.testimony-card');
-        let currentIndex = 0;
-        const visibleCards = 4;
-        const scrollSpeed = 3000; // Scroll speed in milliseconds
-        
-        // Clone the first cards to the end for seamless loop
-        testimonies.forEach((card, index) => {
-            if (index < visibleCards) {
-                const clone = card.cloneNode(true);
-                testimonyContainer.appendChild(clone);
-            }
-        });
+    const testimonyContainer = document.querySelector('.testimonies-container');
+    const testimonies = document.querySelectorAll('.testimony-card');
+    let currentIndex = 0;
+    const visibleCards = 4;
+    const scrollSpeed = 3000; // Scroll speed in milliseconds
+    
+    // Clone the first few cards for a seamless loop
+    testimonies.forEach((card, index) => {
+        if (index < visibleCards) {
+            const clone = card.cloneNode(true);
+            testimonyContainer.appendChild(clone);
+        }
+    });
 
-        // Auto-scroll function
-        function autoScroll() {
-            currentIndex++;
-            if (currentIndex > testimonies.length) {
-                currentIndex = 1; // Reset to the first card
-                testimonyContainer.scrollLeft = 0;
-            }
-            const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
+    // Auto-scroll function
+    function autoScroll() {
+        const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
+        currentIndex++;
+        if (currentIndex > testimonies.length) {
             testimonyContainer.scrollTo({
-                left: scrollWidth * currentIndex,
+                left: 0,
+                behavior: 'smooth',
+            });
+            currentIndex = 1; // Reset the scroll
+        } else {
+            testimonyContainer.scrollBy({
+                left: scrollWidth,
                 behavior: 'smooth',
             });
         }
+    }
 
-        setInterval(autoScroll, scrollSpeed);
-    });
+    setInterval(autoScroll, scrollSpeed);
+});
+
         </script>
 
 
