@@ -426,56 +426,73 @@
         }
 
         .testimonies-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-.testimony-card {
-    background-color: #333;
-    border: 2px solid #525252;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-    transition: transform 0.3s ease;
-}
+        .testimony-card {
+            background-color: #333;
+            border: 2px solid #525252;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+            transition: transform 0.3s ease;
+            max-width: 280px;
+            /* Narrower cards */
+            margin: auto;
+        }
 
-.testimony-card:hover {
-    transform: scale(1.05);
-}
+        .testimony-card:hover {
+            transform: scale(1.05);
+        }
 
-.profile-pic {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    border: 3px solid #66b3ff;
-    margin-bottom: 15px;
-}
+        .profile-pic {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            border: 3px solid #66b3ff;
+            margin-right: 10px;
+        }
 
-.testimony-content h4 {
-    color: #66b3ff;
-    font-size: 1.4em;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
+        .testimony-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.link-icon {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
+        .testimony-content h4 {
+            color: #66b3ff;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.testimony-content p {
-    color: #f0f0f0;
-    font-style: italic;
-    font-size: 1.1em;
-    margin: 0;
-}
+        .link-icon {
+            width: 24px;
+            /* Slightly bigger */
+            height: 24px;
+        }
+
+        .testimony-quote {
+            color: #f0f0f0;
+            font-style: italic;
+            font-size: 1.2em;
+            /* Slightly bigger */
+            font-weight: bold;
+            line-height: 1.3;
+            margin-top: 10px;
+        }
+
+        .blue-quote {
+            color: #66b3ff;
+            /* Blue text for quotation marks */
+            font-size: 1.3em;
+        }
+
 
 
         .contact {
@@ -743,15 +760,22 @@
                 <div class="testimony-card">
                     <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
                     <div class="testimony-content">
-                        <h4>baconxfy<a href="https://discord.com/users/981175234449260595"><img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon"></a></h4>
-                        <p>"This is the testimony or quote from the user."</p>
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
                 </div>
                 <!-- Add more testimony cards here -->
             </div>
         </div>
         
-
         <!-- Contact Section starts after past works -->
         <div class="section contact" style="margin-top: 30px; border-left: 10px solid #009CFF;">
             <h2>Contact Information</h2>
@@ -769,39 +793,39 @@
                 messagingSenderId: "740267567079",
                 appId: "1:740267567079:web:f89ddd67dd40f55b96bf42"
             };
-        
+
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             var db = firebase.firestore();
-        
+
             // Handle star hover and click
-            document.querySelectorAll('.star').forEach(function(star, index) {
-                star.addEventListener('mouseover', function() {
+            document.querySelectorAll('.star').forEach(function (star, index) {
+                star.addEventListener('mouseover', function () {
                     resetStars(); // Reset all stars first
                     highlightStars(index); // Highlight stars up to the hovered one
                 });
-        
-                star.addEventListener('mouseleave', function() {
+
+                star.addEventListener('mouseleave', function () {
                     resetStars(); // Reset stars when leaving
                     highlightCurrentRating(); // Keep selected stars highlighted after leaving
                 });
-        
-                star.addEventListener('click', function() {
+
+                star.addEventListener('click', function () {
                     var ratingValue = index + 1; // Get correct rating (1 to 5)
                     setRating(ratingValue); // Set the rating
                 });
             });
-        
+
             function resetStars() {
-                document.querySelectorAll('.star').forEach(function(star) {
+                document.querySelectorAll('.star').forEach(function (star) {
                     star.classList.remove('selected');
                     star.style.color = '#ccc'; // Reset to neutral color
                     star.style.transform = 'scale(1)'; // Reset size
                 });
             }
-        
+
             function highlightStars(index) {
-                document.querySelectorAll('.star').forEach(function(star, i) {
+                document.querySelectorAll('.star').forEach(function (star, i) {
                     if (i <= index) {
                         star.style.color = '#ff4444'; // Highlight stars in red
                         star.style.transform = 'scale(1.2)'; // Slightly enlarge on hover
@@ -809,31 +833,31 @@
                     }
                 });
             }
-        
+
             function highlightCurrentRating() {
                 var currentRating = localStorage.getItem('userRating') || 0;
-                document.querySelectorAll('.star').forEach(function(star, index) {
+                document.querySelectorAll('.star').forEach(function (star, index) {
                     if (index < currentRating) {
                         star.classList.add('selected'); // Keep stars selected
                         star.style.color = '#ff4444'; // Highlight selected stars
                     }
                 });
             }
-        
+
             function setRating(ratingValue) {
                 resetStars();
-                document.querySelectorAll('.star').forEach(function(star, index) {
+                document.querySelectorAll('.star').forEach(function (star, index) {
                     if (index < ratingValue) {
                         star.classList.add('selected'); // Keep stars selected
                         star.style.color = '#ff4444'; // Highlight selected stars
                     }
                 });
                 localStorage.setItem('userRating', ratingValue); // Store rating locally
-        
+
                 var userId = localStorage.getItem('userId') || Math.random().toString(36).substring(2);
                 localStorage.setItem('userId', userId);
-        
-                db.collection('ratings').doc(userId).get().then(function(doc) {
+
+                db.collection('ratings').doc(userId).get().then(function (doc) {
                     if (doc.exists && doc.data().rating == ratingValue) {
                         db.collection('ratings').doc(userId).delete(); // Remove rating if the same star clicked again
                         localStorage.removeItem('userRating'); // Remove locally stored rating
@@ -843,31 +867,31 @@
                     updateRatingStats();
                 });
             }
-        
+
             function updateRatingStats() {
-                db.collection('ratings').get().then(function(querySnapshot) {
+                db.collection('ratings').get().then(function (querySnapshot) {
                     var totalRatings = 0;
                     var ratingSum = 0;
-        
-                    querySnapshot.forEach(function(doc) {
+
+                    querySnapshot.forEach(function (doc) {
                         totalRatings++;
                         ratingSum += parseInt(doc.data().rating);
                     });
-        
+
                     var avgRating = (ratingSum / totalRatings).toFixed(1);
                     document.getElementById('rating-stats').innerHTML =
                         `Average Rating <span style="color: gold;">${avgRating} Stars</span> ` +
                         `<span style="color: white;">(${totalRatings} Reviews)</span>`;
                 });
             }
-        
+
             // Load existing rating when the page loads
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 highlightCurrentRating(); // Highlight user's rating if available
                 updateRatingStats(); // Update stats when the page loads
             });
         </script>
-        
+
 
 
 </body>
