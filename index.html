@@ -529,37 +529,17 @@
         }
 
 
-        /* For fading effect on specialization, testimony, and past work containers */
         .fade-container {
-            position: relative;
-            overflow: hidden;
-            /* Ensure content is clipped */
-        }
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
 
-        .fade-container::before,
-        .fade-container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 20px;
-            /* Adjust for the amount of fade */
-            z-index: 7;
-        }
-
-        .fade-container::before {
-            left: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');;
-            background: linear-gradient(to right, #1c1c1c, rgba(28, 28, 28, 0));
-          
-        }
-
-        .fade-container::after {
-            right: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-            background: linear-gradient(to left, #1c1c1c, rgba(28, 28, 28, 0));
-            
-        }
+.testimonies-container, .specialization-container, .portfolio {
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
 
 
 
