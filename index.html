@@ -207,20 +207,21 @@
             overflow-y: visible;
             padding-bottom: 20px;
             padding-top: 20px;
+            padding-right: 60px;
             scroll-behavior: smooth;
-            display: flex;
-            justify-content: flex-start; /* Aligns content with the padding */
-            padding-left: 10px; /* Add left padding */
-    padding-right: 40px; /* Add right padding */
         }
 
         .specialization {
             display: flex;
             gap: 20px;
             min-width: 100%;
-            
+            padding-left: 10px; /* Add left padding */
 
         }
+
+        .specialization .card:last-child {
+    margin-right: 10px; /* Adjust this value as needed */
+}
 
         .specialization .card {
             flex: none;
@@ -1022,7 +1023,7 @@
 
                     var avgRating = (ratingSum / totalRatings).toFixed(1);
                     document.getElementById('rating-stats').innerHTML =
-                        `Average Rating <span style="color: gold;">${avgRating} Stars</span> ` +
+                        `Average Rating: <span style="color: gold;">${avgRating} Stars</span> ` +
                         `<span style="color: white;">(${totalRatings} Reviews)</span>`;
                 });
             }
