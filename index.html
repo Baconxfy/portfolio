@@ -427,99 +427,135 @@
         }
 
         .testimonies-container {
-    display: flex;
-    gap: 20px;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 20px 0;
-    z-index: 1;
-}
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 20px 0;
+            z-index: 1;
+        }
 
-.testimonies-wrapper {
-    display: flex;
-    animation: scroll 20s linear infinite;
-}
+        .testimonies-wrapper {
+            display: flex;
+            animation: scroll 20s linear infinite;
+        }
 
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
 
-
-.testimony-card {
-    flex: none;
-    width: 300px; /* Keep consistent width */
-    border-radius: 15px;
-    padding: 20px;
-    background-color: #333;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-    transition: transform 0.3s ease;
-    position: relative;
-    white-space: normal; /* Ensure text wraps inside the card */
-    border: 3px solid #525252;
-    z-index: 2;
-}
+            to {
+                transform: translateX(-100%);
+            }
+        }
 
 
-.testimony-card:hover {
-    transform: scale(1.05);
-}
+        .testimony-card {
+            flex: none;
+            width: 300px;
+            /* Keep consistent width */
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #333;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+            transition: transform 0.3s ease;
+            position: relative;
+            white-space: normal;
+            /* Ensure text wraps inside the card */
+            border: 3px solid #525252;
+            z-index: 2;
+        }
 
-.profile-pic {
-    border-radius: 50%;
-    width: 90px; /* Increased size */
-    height: 90px;
-    border: 3px solid #66b3ff;
-    margin-right: 10px;
-}
 
-.testimony-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    position: relative;
-    top: -15px; /* Moves content higher */
-}
+        .testimony-card:hover {
+            transform: scale(1.05);
+        }
 
-.testimony-content h4 {
-    color: #66b3ff;
-    font-size: 2em; /* Increased size */
-    font-weight: bold;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-}
+        .profile-pic {
+            border-radius: 50%;
+            width: 90px;
+            /* Increased size */
+            height: 90px;
+            border: 3px solid #66b3ff;
+            margin-right: 10px;
+        }
 
-.link-icon {
-    width: 40px; /* Larger icon */
-    height: 40px;
-}
+        .testimony-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            position: relative;
+            top: -15px;
+            /* Moves content higher */
+        }
 
-.testimony-quote {
-    color: #f0f0f0;
-    font-style: italic;
-    font-size: 1.3em;
-    font-weight: bold;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-    line-height: 1.3;
-    padding: 10px;
-    border-radius: 15px;
-    border: 3px solid #525252;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    background-color: #2f2f2f;
-    margin-top: -20px;
-    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-}
+        .testimony-content h4 {
+            color: #66b3ff;
+            font-size: 2em;
+            /* Increased size */
+            font-weight: bold;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+        }
 
-.blue-quote {
-    color: #66b3ff; /* Blue text for quotation marks */
-    font-size: 1.5em;
-}
+        .link-icon {
+            width: 40px;
+            /* Larger icon */
+            height: 40px;
+        }
 
+        .testimony-quote {
+            color: #f0f0f0;
+            font-style: italic;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+            line-height: 1.3;
+            padding: 10px;
+            border-radius: 15px;
+            border: 3px solid #525252;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+            background-color: #2f2f2f;
+            margin-top: -20px;
+            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+        }
+
+        .blue-quote {
+            color: #66b3ff;
+            /* Blue text for quotation marks */
+            font-size: 1.5em;
+        }
+
+
+        /* For fading effect on specialization, testimony, and past work containers */
+        .fade-container {
+            position: relative;
+            overflow: hidden;
+            /* Ensure content is clipped */
+        }
+
+        .fade-container::before,
+        .fade-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            /* Adjust for the amount of fade */
+            z-index: 2;
+        }
+
+        .fade-container::before {
+            left: 0;
+            background: linear-gradient(to right, #1c1c1c, rgba(28, 28, 28, 0));
+        }
+
+        .fade-container::after {
+            right: 0;
+            background: linear-gradient(to left, #1c1c1c, rgba(28, 28, 28, 0));
+        }
 
 
 
@@ -711,35 +747,39 @@
 
         <div class="section">
             <h2>My Specializations</h2>
-            <div class="specialization-container">
-                <div class="specialization">
-                    <div class="card">
-                        <h3>Combat Systems</h3>
-                        <p><strong>Designing and scripting dynamic combat mechanics for engaging player
-                                experiences.</strong></p>
-                    </div>
-                    <div class="card">
-                        <h3>UI Scripting</h3>
-                        <p><strong>Creating intuitive and responsive interfaces that enhance user interaction.</strong>
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Game State Management</h3>
-                        <p><strong>Building efficient systems for managing game states and ensuring smooth
-                                gameplay.</strong></p>
-                    </div>
-                    <div class="card">
-                        <h3>AI Development</h3>
-                        <p><strong>Creating intelligent and responsive AI behaviors for dynamic gameplay
-                                experiences.</strong></p>
-                    </div>
-                    <div class="card">
-                        <h3>Multiplayer Systems</h3>
-                        <p><strong>Designing and implementing robust multiplayer systems for seamless online
-                                interactions.</strong></p>
+            <div class="fade-container">
+                <div class="specialization-container">
+                    <div class="specialization">
+                        <div class="card">
+                            <h3>Combat Systems</h3>
+                            <p><strong>Designing and scripting dynamic combat mechanics for engaging player
+                                    experiences.</strong></p>
+                        </div>
+                        <div class="card">
+                            <h3>UI Scripting</h3>
+                            <p><strong>Creating intuitive and responsive interfaces that enhance user
+                                    interaction.</strong>
+                            </p>
+                        </div>
+                        <div class="card">
+                            <h3>Game State Management</h3>
+                            <p><strong>Building efficient systems for managing game states and ensuring smooth
+                                    gameplay.</strong></p>
+                        </div>
+                        <div class="card">
+                            <h3>AI Development</h3>
+                            <p><strong>Creating intelligent and responsive AI behaviors for dynamic gameplay
+                                    experiences.</strong></p>
+                        </div>
+                        <div class="card">
+                            <h3>Multiplayer Systems</h3>
+                            <p><strong>Designing and implementing robust multiplayer systems for seamless online
+                                    interactions.</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
 
@@ -748,138 +788,154 @@
             <h2 class="section-header">Past Works</h2> <!-- Header remains visible and unaffected by blur -->
 
             <!-- Portfolio section that gets blurred -->
-            <div id="portfolio-section" class="portfolio">
-                <div id="blur-background"> <!-- Wrap blur content -->
-                    <!-- Past work cards -->
-                    <div class="card">
-                        <h4>Project Title 1</h4>
-                        <img src="your-project-image-url" alt="Project 1">
-                        <p>Brief description of the project.</p>
+            <div class="fade-container">
+                <div id="portfolio-section" class="portfolio">
+                    <div id="blur-background"> <!-- Wrap blur content -->
+                        <!-- Past work cards -->
+                        <div class="card">
+                            <h4>Project Title 1</h4>
+                            <img src="your-project-image-url" alt="Project 1">
+                            <p>Brief description of the project.</p>
+                        </div>
+                        <div class="card">
+                            <h4>Project Title 2</h4>
+                            <img src="your-project-image-url" alt="Project 2">
+                            <p>Brief description of the project.</p>
+                        </div>
+                        <div class="card">
+                            <h4>Project Title 3</h4>
+                            <video src="your-project-video-url" controls></video>
+                            <p>Brief description of the project.</p>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h4>Project Title 2</h4>
-                        <img src="your-project-image-url" alt="Project 2">
-                        <p>Brief description of the project.</p>
+    
+                    <!-- Disclaimer Box -->
+                    <div id="disclaimer-box" class="disclaimer">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="disclaimer-checkbox" onclick="togglePortfolio()">
+                            <span class="checkmark"></span>
+                            <span class="disclaimer-text">I understand that these pastworks only demonstrate my scripting
+                                ability and all other aspects of these projects are not made by me.</span>
+                        </label>
                     </div>
-                    <div class="card">
-                        <h4>Project Title 3</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
-                    </div>
-                </div>
-
-                <!-- Disclaimer Box -->
-                <div id="disclaimer-box" class="disclaimer">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="disclaimer-checkbox" onclick="togglePortfolio()">
-                        <span class="checkmark"></span>
-                        <span class="disclaimer-text">I understand that these pastworks only demonstrate my scripting
-                            ability and all other aspects of these projects are not made by me.</span>
-                    </label>
-                </div>
-            </div> <!-- Correct closing for portfolio section -->
+                </div> <!-- Correct closing for portfolio section -->
+            </div>
 
         </div> <!-- Correct closing for past works section -->
         <button id="load-more">Load More</button>
 
         <div class="section">
             <h2 class="section-header">Testimonies</h2>
-            <div class="testimonies-container">
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+            <div class="fade-container">
+                <div class="testimonies-container">
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
-                </div>
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
-                </div>
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
-                </div>
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
-                </div>
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
-                </div>
-                <div class="testimony-card">
-                    <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
-                        <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595" target="_blank">
-                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
-                            </a>
-                        </h4>
+                    <div class="testimony-card">
+                        <div class="testimony-content">
+                            <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                                alt="Profile Picture" class="profile-pic">
+                            <h4>baconxfy
+                                <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png"
+                                        alt="link icon" class="link-icon">
+                                </a>
+                            </h4>
+                        </div>
+                        <p class="testimony-quote">
+                            <span class="blue-quote">"</span>
+                            This is the testimony or quote from the user.
+                            <span class="blue-quote">"</span>
+                        </p>
                     </div>
-                    <p class="testimony-quote">
-                        <span class="blue-quote">"</span>
-                        This is the testimony or quote from the user.
-                        <span class="blue-quote">"</span>
-                    </p>
+    
+                    <!-- Add more testimony cards here -->
                 </div>
-                
-                <!-- Add more testimony cards here -->
             </div>
         </div>
-        
+
         <!-- Contact Section starts after past works -->
         <div class="section contact" style="margin-top: 30px; border-left: 10px solid #009CFF;">
             <h2>Contact Information</h2>
@@ -995,43 +1051,43 @@
                 updateRatingStats(); // Update stats when the page loads
             });
             document.addEventListener('DOMContentLoaded', function () {
-    const testimonyContainer = document.querySelector('.testimonies-container');
-    const testimonies = document.querySelectorAll('.testimony-card');
-    let scrollWidth = 0;
-    let scrollInterval;
+                const testimonyContainer = document.querySelector('.testimonies-container');
+                const testimonies = document.querySelectorAll('.testimony-card');
+                let scrollWidth = 0;
+                let scrollInterval;
 
-    // Clone the cards to simulate infinite loop
-    testimonies.forEach(card => {
-        const clone = card.cloneNode(true);
-        testimonyContainer.appendChild(clone);
-    });
+                // Clone the cards to simulate infinite loop
+                testimonies.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    testimonyContainer.appendChild(clone);
+                });
 
-    function continuousScroll() {
-        scrollWidth++;
-        testimonyContainer.scrollLeft = scrollWidth;
+                function continuousScroll() {
+                    scrollWidth++;
+                    testimonyContainer.scrollLeft = scrollWidth;
 
-        if (scrollWidth >= testimonyContainer.scrollWidth / 2) {
-            scrollWidth = 0; // Reset without noticeable jump
-        }
-    }
+                    if (scrollWidth >= testimonyContainer.scrollWidth / 2) {
+                        scrollWidth = 0; // Reset without noticeable jump
+                    }
+                }
 
-    function startScroll() {
-        scrollInterval = setInterval(continuousScroll, 20); // Start continuous scrolling
-    }
+                function startScroll() {
+                    scrollInterval = setInterval(continuousScroll, 10); // Start continuous scrolling
+                }
 
-    function stopScroll() {
-        clearInterval(scrollInterval); // Stop scrolling
-    }
+                function stopScroll() {
+                    clearInterval(scrollInterval); // Stop scrolling
+                }
 
-    // Start scrolling initially
-    startScroll();
+                // Start scrolling initially
+                startScroll();
 
-    // Add event listeners to stop/start scrolling on hover
-    testimonies.forEach(card => {
-        card.addEventListener('mouseenter', stopScroll);  // Stop when mouse hovers
-        card.addEventListener('mouseleave', startScroll); // Resume when mouse leaves
-    });
-});
+                // Add event listeners to stop/start scrolling on hover
+                testimonies.forEach(card => {
+                    card.addEventListener('mouseenter', stopScroll);  // Stop when mouse hovers
+                    card.addEventListener('mouseleave', startScroll); // Resume when mouse leaves
+                });
+            });
 
 
 
