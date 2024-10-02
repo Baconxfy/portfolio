@@ -209,6 +209,8 @@
             padding-top: 20px;
             padding-right: 60px;
             scroll-behavior: smooth;
+            display: flex;
+            justify-content: flex-start; /* Aligns content with the padding */
         }
 
         .specialization {
@@ -233,6 +235,12 @@
             background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
             transition: transform 0.3s ease;
         }
+
+        .specialization .card:hover {
+    transform: scale(1.05); /* Enlarge the card slightly */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for a nice effect */
+    z-index: 5; /* Ensure it appears above other cards */
+}
 
         .card h3 {
             font-size: 1.6em;
