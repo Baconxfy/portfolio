@@ -176,7 +176,14 @@
             margin: 20px auto;
             transition: transform 0.2s ease-in-out;
             /* Ensures square shape */
+            transition: transform 0.3s ease, margin 0.3s ease;
         }
+
+        .card:hover {
+    transform: scale(1.1);
+    z-index: 1;
+    margin: 5px; /* Adjusts margin when hovered */
+}
 
         .about-cards .card h3 {
             font-size: 1.4em;
@@ -206,6 +213,11 @@
             padding-top: 20px;
             padding-right: 60px;
             scroll-behavior: smooth;
+            display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    align-items: flex-start;
         }
 
         .specialization {
