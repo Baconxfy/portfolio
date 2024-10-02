@@ -427,14 +427,27 @@
         }
 
         .testimonies-container {
-            display: flex;
+    display: flex;
     gap: 20px;
-    overflow: hidden; /* Hide scrollbar */
+    overflow: hidden;
     white-space: nowrap;
     padding: 20px 0;
-    scroll-behavior: smooth;
     z-index: 1;
-    
+    position: relative;
+}
+
+.testimonies-wrapper {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .testimony-card {
@@ -452,6 +465,7 @@
     border: 3px solid #525252;
     z-index: 2;
 }
+
 
 .testimony-card:hover {
     transform: scale(1.05);
