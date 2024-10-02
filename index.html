@@ -275,35 +275,29 @@
         }
 
         /* Default state for stars */
+        /* Default state for stars */
         .star {
             color: #ccc;
             cursor: pointer;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
         }
 
-        /* Illuminate stars from left to right on hover */
+        /* Hover effect to illuminate stars */
         .star:hover,
         .star:hover~.star {
-            color: #ccc;
-            /* Reset stars to neutral */
-        }
-
-        .star:hover~.star,
-        .star:hover {
             color: #ff4444;
-            /* Red stars */
         }
 
         /* Keep selected stars illuminated */
         .star.selected {
             color: #ff4444;
-            /* Selected color */
         }
 
         /* Enlarge star on hover */
         .star:hover {
             transform: scale(1.2);
         }
+
 
 
 
@@ -695,61 +689,6 @@
                         style="font-weight: bold; text-decoration: none;">Baconxfy</a></strong></p>
         </div>
         <script>
-            document.querySelectorAll('.star').forEach(function(star, index) {
-    star.addEventListener('mouseover', function() {
-        resetStars(); // Reset all stars first
-        highlightStars(index); // Highlight stars up to the hovered one
-    });
-
-    star.addEventListener('click', function() {
-        var ratingValue = index + 1; // Get correct rating (1 to 5)
-        setRating(ratingValue); // Set the rating
-    });
-});
-
-function resetStars() {
-    document.querySelectorAll('.star').forEach(function(star) {
-        star.classList.remove('selected');
-        star.style.color = '#ccc'; // Reset to neutral color
-    });
-}
-
-function highlightStars(index) {
-    document.querySelectorAll('.star').forEach(function(star, i) {
-        if (i <= index) {
-            star.style.color = '#ff4444'; // Highlight stars in red
-        }
-    });
-}
-
-function setRating(ratingValue) {
-    resetStars();
-    document.querySelectorAll('.star').forEach(function(star, index) {
-        if (index < ratingValue) {
-            star.classList.add('selected'); // Keep stars selected
-            star.style.color = '#ff4444'; // Highlight selected stars
-        }
-    });
-    // Store rating logic (e.g., Firebase) would go here
-}
-
-            function updateRatingStats() {
-                db.collection('ratings').get().then(function (querySnapshot) {
-                    var totalRatings = 0;
-                    var ratingSum = 0;
-
-                    querySnapshot.forEach(function (doc) {
-                        totalRatings++;
-                        ratingSum += parseInt(doc.data().rating);
-                    });
-
-                    var avgRating = (ratingSum / totalRatings).toFixed(1);
-                    document.getElementById('rating-stats').innerHTML =
-                        `Average Rating <span style="color: gold;">${avgRating} Stars</span> ` +
-                        `<span style="color: white;">(${totalRatings} Reviews)</span>`;
-                });
-            }
-
             // Firebase configuration
             var firebaseConfig = {
                 apiKey: "AIzaSyC_JlYWIfLoqVE-9W4qrFlrHsktXw_rSzA",
@@ -759,31 +698,105 @@ function setRating(ratingValue) {
                 messagingSenderId: "740267567079",
                 appId: "1:740267567079:web:f89ddd67dd40f55b96bf42"
             };
-
+        
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             var db = firebase.firestore();
-
-            // Handle Ratings
-            document.querySelectorAll('.star').forEach(function (star) {
-                star.addEventListener('click', function () {
-                    var ratingValue = star.getAttribute('data-value');
-                    var userId = localStorage.getItem('userId') || Math.random().toString(36).substring(2);
-                    localStorage.setItem('userId', userId);
-
-                    db.collection('ratings').doc(userId).get().then(function (doc) {
-                        if (doc.exists && doc.data().rating == ratingValue) {
-                            db.collection('ratings').doc(userId).delete(); // Remove rating if same star clicked
-                        } else {
-                            db.collection('ratings').doc(userId).set({ rating: ratingValue });
-                        }
-                        updateRatingStats();
-                    });
+        
+            // Handle star hover and click
+            document.querySelectorAll('.star').forEach(function(star, index) {
+                star.addEventListener('mouseover', function() {
+                    resetStars(); // Reset all stars first
+                    highlightStars(index); // Highlight stars up to the hovered one
+                });
+        
+                star.addEventListener('mouseleave', function() {
+                    resetStars(); // Reset stars when leaving
+                    highlightCurrentRating(); // Keep selected stars highlighted after leaving
+                });
+        
+                star.addEventListener('click', function() {
+                    var ratingValue = index + 1; // Get correct rating (1 to 5)
+                    setRating(ratingValue); // Set the rating
                 });
             });
-
+        
+            function resetStars() {
+                document.querySelectorAll('.star').forEach(function(star) {
+                    star.classList.remove('selected');
+                    star.style.color = '#ccc'; // Reset to neutral color
+                    star.style.transform = 'scale(1)'; // Reset size
+                });
+            }
+        
+            function highlightStars(index) {
+                document.querySelectorAll('.star').forEach(function(star, i) {
+                    if (i <= index) {
+                        star.style.color = '#ff4444'; // Highlight stars in red
+                        star.style.transform = 'scale(1.2)'; // Slightly enlarge on hover
+                        star.style.transition = 'transform 0.2s ease-in-out'; // Add smooth transition
+                    }
+                });
+            }
+        
+            function highlightCurrentRating() {
+                var currentRating = localStorage.getItem('userRating') || 0;
+                document.querySelectorAll('.star').forEach(function(star, index) {
+                    if (index < currentRating) {
+                        star.classList.add('selected'); // Keep stars selected
+                        star.style.color = '#ff4444'; // Highlight selected stars
+                    }
+                });
+            }
+        
+            function setRating(ratingValue) {
+                resetStars();
+                document.querySelectorAll('.star').forEach(function(star, index) {
+                    if (index < ratingValue) {
+                        star.classList.add('selected'); // Keep stars selected
+                        star.style.color = '#ff4444'; // Highlight selected stars
+                    }
+                });
+                localStorage.setItem('userRating', ratingValue); // Store rating locally
+        
+                var userId = localStorage.getItem('userId') || Math.random().toString(36).substring(2);
+                localStorage.setItem('userId', userId);
+        
+                db.collection('ratings').doc(userId).get().then(function(doc) {
+                    if (doc.exists && doc.data().rating == ratingValue) {
+                        db.collection('ratings').doc(userId).delete(); // Remove rating if the same star clicked again
+                        localStorage.removeItem('userRating'); // Remove locally stored rating
+                    } else {
+                        db.collection('ratings').doc(userId).set({ rating: ratingValue });
+                    }
+                    updateRatingStats();
+                });
+            }
+        
+            function updateRatingStats() {
+                db.collection('ratings').get().then(function(querySnapshot) {
+                    var totalRatings = 0;
+                    var ratingSum = 0;
+        
+                    querySnapshot.forEach(function(doc) {
+                        totalRatings++;
+                        ratingSum += parseInt(doc.data().rating);
+                    });
+        
+                    var avgRating = (ratingSum / totalRatings).toFixed(1);
+                    document.getElementById('rating-stats').innerHTML =
+                        `Average Rating <span style="color: gold;">${avgRating} Stars</span> ` +
+                        `<span style="color: white;">(${totalRatings} Reviews)</span>`;
+                });
+            }
+        
+            // Load existing rating when the page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                highlightCurrentRating(); // Highlight user's rating if available
+                updateRatingStats(); // Update stats when the page loads
+            });
         </script>
-
+        
 
 
 </body>
