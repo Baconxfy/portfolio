@@ -429,7 +429,7 @@
         .testimonies-container {
     display: flex;
     gap: 20px;
-    overflow-x: auto;
+    overflow-x:visible;
     white-space: nowrap;
     padding: 20px 0;
     scroll-behavior: smooth;
@@ -905,6 +905,39 @@
                 highlightCurrentRating(); // Highlight user's rating if available
                 updateRatingStats(); // Update stats when the page loads
             });
+            
+
+            document.addEventListener('DOMContentLoaded', function() {
+        const testimonyContainer = document.querySelector('.testimonies-container');
+        const testimonies = document.querySelectorAll('.testimony-card');
+        let currentIndex = 0;
+        const visibleCards = 4;
+        const scrollSpeed = 3000; // Scroll speed in milliseconds
+        
+        // Clone the first cards to the end for seamless loop
+        testimonies.forEach((card, index) => {
+            if (index < visibleCards) {
+                const clone = card.cloneNode(true);
+                testimonyContainer.appendChild(clone);
+            }
+        });
+
+        // Auto-scroll function
+        function autoScroll() {
+            currentIndex++;
+            if (currentIndex > testimonies.length) {
+                currentIndex = 1; // Reset to the first card
+                testimonyContainer.scrollLeft = 0;
+            }
+            const scrollWidth = testimonies[0].offsetWidth + 20; // Card width + gap
+            testimonyContainer.scrollTo({
+                left: scrollWidth * currentIndex,
+                behavior: 'smooth',
+            });
+        }
+
+        setInterval(autoScroll, scrollSpeed);
+    });
         </script>
 
 
