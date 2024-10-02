@@ -428,14 +428,16 @@
 
         .testimonies-container {
     display: flex;
-    overflow: hidden; /* Hide overflow */
+    gap: 20px;
+    overflow: hidden;
     white-space: nowrap;
     padding: 20px 0;
+    z-index: 1;
 }
 
 .testimonies-wrapper {
     display: flex;
-    animation: scroll 20s linear infinite; /* Continuously scroll */
+    animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
@@ -447,17 +449,22 @@
     }
 }
 
+
 .testimony-card {
     flex: none;
-    width: 300px; /* Card size */
-    margin-right: 20px;
+    width: 300px; /* Keep consistent width */
     border-radius: 15px;
+    margin-right: 20px;
     padding: 20px;
     background-color: #333;
+    margin-left: 7px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
     transition: transform 0.3s ease;
+    position: relative;
+    white-space: normal; /* Ensure text wraps inside the card */
     border: 3px solid #525252;
+    z-index: 2;
 }
 
 
@@ -990,18 +997,28 @@
                 updateRatingStats(); // Update stats when the page loads
             });
             
-            document.addEventListener('DOMContentLoaded', function() {
-    const testimonyContainer = document.querySelector('.testimonies-wrapper');
+            document.addEventListener('DOMContentLoaded', function () {
+    const testimonyContainer = document.querySelector('.testimonies-container');
     const testimonies = document.querySelectorAll('.testimony-card');
-    const totalTestimonies = testimonies.length;
+    let scrollWidth = 0;
 
-    // Clone each card and append it to the end for seamless looping
-    for (let i = 0; i < totalTestimonies; i++) {
-        const clone = testimonies[i].cloneNode(true);
+    // Clone the cards to simulate infinite loop
+    testimonies.forEach(card => {
+        const clone = card.cloneNode(true);
         testimonyContainer.appendChild(clone);
-    }
-});
+    });
 
+    function continuousScroll() {
+        scrollWidth++;
+        testimonyContainer.scrollLeft = scrollWidth;
+
+        if (scrollWidth >= testimonyContainer.scrollWidth / 2) {
+            scrollWidth = 0; // Reset without noticeable jump
+        }
+    }
+
+    setInterval(continuousScroll, 20); // Adjust speed for smoother scrolling
+});
 
 
         </script>
