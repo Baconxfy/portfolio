@@ -425,8 +425,15 @@
         #load-more:active {
             transform: scale(0.95);
         }
+        .testimonies-container {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
         .testimony-card {
+            
             border: 3px solid #525252;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
             background-color: #333;
@@ -438,6 +445,23 @@
     transition: transform 0.3s ease;
     max-width: 300px; /* Wider cards */
     position: relative;
+    display: inline-block;
+    min-width: 250px;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+    flex-shrink: 0;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.scrolling {
+    animation: scroll 20s linear infinite;
 }
 
 .testimony-card:hover {
@@ -763,7 +787,7 @@
                     <div class="testimony-content">
                         <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
-                            <a href="https://discord.com/users/981175234449260595">
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
                                 <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
                             </a>
                         </h4>
@@ -774,6 +798,82 @@
                         <span class="blue-quote">"</span>
                     </p>
                 </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+                <div class="testimony-card">
+                    <div class="testimony-content">
+                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic">
+                        <h4>baconxfy
+                            <a href="https://discord.com/users/981175234449260595" target="_blank">
+                                <img src="https://static.vecteezy.com/system/resources/previews/018/930/718/original/discord-logo-discord-icon-transparent-free-png.png" alt="link icon" class="link-icon">
+                            </a>
+                        </h4>
+                    </div>
+                    <p class="testimony-quote">
+                        <span class="blue-quote">"</span>
+                        This is the testimony or quote from the user.
+                        <span class="blue-quote">"</span>
+                    </p>
+                </div>
+
                 <!-- Add more testimony cards here -->
             </div>
         </div>
@@ -892,6 +992,33 @@
                 highlightCurrentRating(); // Highlight user's rating if available
                 updateRatingStats(); // Update stats when the page loads
             });
+
+            document.addEventListener('DOMContentLoaded', function () {
+    const container = document.querySelector('.testimonies-container');
+    const cards = document.querySelectorAll('.testimony-card');
+
+    let scrollAnimation;
+
+    function startScrolling() {
+        container.classList.add('scrolling');
+    }
+
+    function stopScrolling() {
+        container.classList.remove('scrolling');
+    }
+
+    // Clone the cards for a seamless loop
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        container.appendChild(clone);
+    });
+
+    container.addEventListener('mouseover', stopScrolling);
+    container.addEventListener('mouseout', startScrolling);
+
+    startScrolling();
+});
+
         </script>
 
 
