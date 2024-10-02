@@ -454,10 +454,8 @@
     flex: none;
     width: 300px; /* Keep consistent width */
     border-radius: 15px;
-    margin-right: 5px;
     padding: 20px;
     background-color: #333;
-    margin-left: 7px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
     transition: transform 0.3s ease;
@@ -996,11 +994,11 @@
                 highlightCurrentRating(); // Highlight user's rating if available
                 updateRatingStats(); // Update stats when the page loads
             });
-            
             document.addEventListener('DOMContentLoaded', function () {
     const testimonyContainer = document.querySelector('.testimonies-container');
     const testimonies = document.querySelectorAll('.testimony-card');
     let scrollWidth = 0;
+    let scrollInterval;
 
     // Clone the cards to simulate infinite loop
     testimonies.forEach(card => {
@@ -1017,8 +1015,24 @@
         }
     }
 
-    setInterval(continuousScroll, 20); // Adjust speed for smoother scrolling
+    function startScroll() {
+        scrollInterval = setInterval(continuousScroll, 20); // Start continuous scrolling
+    }
+
+    function stopScroll() {
+        clearInterval(scrollInterval); // Stop scrolling
+    }
+
+    // Start scrolling initially
+    startScroll();
+
+    // Add event listeners to stop/start scrolling on hover
+    testimonies.forEach(card => {
+        card.addEventListener('mouseenter', stopScroll);  // Stop when mouse hovers
+        card.addEventListener('mouseleave', startScroll); // Resume when mouse leaves
+    });
 });
+
 
 
         </script>
