@@ -222,7 +222,7 @@
             width: calc((100% / 4) - 20px);
             border-radius: 15px;
             padding: 20px;
-            padding-left: 40px;
+            margin-left: 40px;
             text-align: center;
             border: 3px solid #525252;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
@@ -352,6 +352,7 @@
             /* Apply blur to the content inside the background only */
             transition: filter 0.3s ease;
             display: grid;
+            overflow-y: visible;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
