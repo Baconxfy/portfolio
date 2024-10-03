@@ -560,68 +560,49 @@
 
 
 
-        .contact {
-            background-color: #2a2a2a;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            color: #f0f0f0;
-            text-align: center;
-            border-left: 10px solid #66b3ff;
-            background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-            border: 2px solid #444;
-        }
+        /* Contact Section Styling */
+.contact {
+    background-color: #242424;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 1), -5px 0px 20px #66b3ff;
+    color: #f0f0f0;
+    text-align: center;
+    border: 2.5px solid #000000;
+    border-left: 10px solid #66b3ff;
+    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+}
 
-        .contact h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #66b3ff;
-            text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-        }
+.contact h2 {
+    font-size: 2em;
+    color: #66b3ff;
+    margin-bottom: 20px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
 
-        .contact p {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            color: #66b3ff;
-            font-size: 1.6em;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid #66b3ff;
-            padding-bottom: 2px;
-        }
-
-        .contact a:hover {
-            border-bottom: 2px solid #ff5e50;
-            color: #ff5e50;
-        }
-
-
- /* Contact Section Styles */
-/* Contact Section Styles */
+/* Contact Card Styling */
 .contact-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Space between the cards */
-    margin-top: 20px;
+    gap: 20px;
 }
 
 .contact-card {
-    width: 100%;
-    max-width: 500px; /* Reduce the max width for thinner cards */
+    max-width: 600px;
+    padding: 20px;
     background-color: #333;
     border: 3px solid #525252;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    padding: 10px; /* Smaller padding for a thinner look */
     border-radius: 15px;
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-    text-align: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
 }
 
 .contact-card:hover {
@@ -629,27 +610,37 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-.contact-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Make profile pictures smaller */
+/* Profile Picture Styling */
 .contact-content .profile-pic {
     border-radius: 50%;
-    width: 60px;  /* Smaller size */
-    height: 60px; /* Match the width */
-    border: 2px solid #000; /* Maintain the same border */
-    margin-right: 10px;
+    width: 50px;  /* Smaller size */
+    height: 50px; /* Match the width */
+    border: 2px solid #000;
 }
 
+/* Username and Logo Styling */
 .contact-content h4 {
     color: #66b3ff;
     font-size: 1.6em;
     font-weight: bold;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
+    margin: 0;
+}
+
+.contact-content .link-icon {
+    width: 35px; /* Adjust size */
+    height: 35px;
+    margin-left: 10px;
+}
+
+/* Remove blue underline */
+.contact-content a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.contact-content a:hover {
+    text-decoration: none;
 }
 
 /* Special Message Card */
@@ -657,24 +648,21 @@
     background-color: transparent;
     border: none;
     box-shadow: none;
+    text-align: center;
+    padding: 10px;
 }
 
 .special-message {
     color: #66b3ff;
     font-size: 1.8em;
     font-weight: bold;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
     border-left: 5px solid #66b3ff;
     padding-left: 10px;
-    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-    padding: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
+    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
 }
 
-/* Remove the blue line under images */
-.contact-content .profile-pic {
-    border-bottom: none; /* Ensure no line appears */
-}
 
 
 
