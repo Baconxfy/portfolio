@@ -1042,41 +1042,16 @@
                 <!-- Second Contact Card -->
                 <div class="contact-card">
                     <div class="contact-content">
-                        <img id="profilePic" src="" alt="Profile Picture" class="profile-pic" style="display:none;">
-                        <h4 id="username">Baconxfy (Sub2BaconxfyYT)
+                        <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-A3EA115DDD403DABA8A40CCB6F18E92A-Png/150/150/AvatarHeadshot/Webp/noFilter"
+                             alt="Profile Picture" class="profile-pic">
+                        <h4>Baconxfy (Sub2BaconxfyYT)
                             <a href="https://discord.com/users/someotherid" target="_blank">
-                                <img src="https://static.wikia.nocookie.net/robloxcities/images/d/d2/RobloxLogo.png/revision/latest?cb=20230125021936"
+                                <img src="https://i.pinimg.com/originals/08/c9/3a/08c93ae64fce93addd033aa1560c2712.jpg"
                                      alt="link icon" class="link-icon">
                             </a>
                         </h4>
                     </div>
                 </div>
-                
-                <!-- Input field for user ID -->
-                <button onclick="fetchAvatar()">Update Avatar</button>
-                
-                <script>
-                    async function fetchAvatar() {
-                        const userId = 2406758232
-                        const url = `https://thumbnails.roblox.com/v1/users/avatar-bust?userIds=${userId}&size=150x150&format=Png&isCircular=true`;
-                
-                        try {
-                            const response = await fetch(url);
-                            const data = await response.json();
-                
-                            if (data.data && data.data.length > 0 && data.data[0].state === "Completed") {
-                                const avatarUrl = data.data[0].imageUrl;
-                                const imgElement = document.getElementById('profilePic');
-                                imgElement.src = avatarUrl;
-                            } else {
-                                console.error('Avatar not available or still processing.');
-                            }
-                        } catch (error) {
-                            console.error('Error fetching avatar:', error);
-                        }
-                    }
-                </script>
-                
         
                 <!-- Third Contact Card (Special Message) -->
                 
