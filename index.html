@@ -203,7 +203,7 @@
         }
 
         .specialization-container {
-            overflow-x: scroll;
+            overflow-x: auto;
             overflow-y: visible;
             padding-bottom: 20px;
             padding-top: 20px;
@@ -220,9 +220,7 @@
 
         }
 
-   .specialization .card:last-child {
-    margin-right: 30px; /* Extra space for last item */
-}
+   
 
         .specialization .card {
             flex: none;
@@ -238,6 +236,9 @@
             transition: transform 0.3s ease;
         }
 
+        .specialization .card:last-child {
+    margin-right: 30px; /* Extra space for last item */
+}
 
         .specialization .card:hover {
     transform: scale(1.05); /* Enlarge the card slightly */
