@@ -610,11 +610,43 @@
 }
 
 /* Profile Picture Styling */
+.contact-content {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Keeps profile picture, username, and logo on the same line */
+}
+
+/* Styling for the Profile Picture */
 .contact-content .profile-pic {
     border-radius: 50%;
-    width: 50px;  /* Smaller size */
-    height: 50px; /* Match the width */
+    width: 50px;
+    height: 50px;
     border: 2px solid #000;
+}
+
+/* Styling for the Username and Logo */
+.contact-content h4 {
+    color: #66b3ff;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
+    margin: 0; /* Keeps everything neatly aligned */
+}
+
+.contact-content .link-icon {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+/* Removing the blue underline from links */
+.contact-content a {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.contact-content a:hover {
+    text-decoration: none;
 }
 
 /* Username and Logo Styling */
