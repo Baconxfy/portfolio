@@ -602,21 +602,22 @@
 
 
  /* Contact Section Styles */
+/* Contact Section Styles */
 .contact-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Space between the cards */
+    gap: 15px; /* Space between the cards */
     margin-top: 20px;
 }
 
 .contact-card {
     width: 100%;
-    max-width: 600px; /* Increase max width to make cards longer */
+    max-width: 500px; /* Reduce the max width for thinner cards */
     background-color: #333;
     border: 3px solid #525252;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    padding: 15px; /* Reduced padding for a thinner look */
+    padding: 10px; /* Smaller padding for a thinner look */
     border-radius: 15px;
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
     text-align: center;
@@ -669,6 +670,12 @@
     padding: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
 }
+
+/* Remove the blue line under images */
+.contact-content .profile-pic {
+    border-bottom: none; /* Ensure no line appears */
+}
+
 
 
         ::-webkit-scrollbar {
