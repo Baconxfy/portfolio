@@ -601,7 +601,7 @@
         }
 
 
-        /* Contact Section Styles */
+ /* Contact Section Styles */
 .contact-cards {
     display: flex;
     flex-direction: column;
@@ -612,11 +612,11 @@
 
 .contact-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px; /* Increase max width to make cards longer */
     background-color: #333;
     border: 3px solid #525252;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    padding: 20px;
+    padding: 15px; /* Reduced padding for a thinner look */
     border-radius: 15px;
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
     text-align: center;
@@ -633,6 +633,15 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+/* Make profile pictures smaller */
+.contact-content .profile-pic {
+    border-radius: 50%;
+    width: 60px;  /* Smaller size */
+    height: 60px; /* Match the width */
+    border: 2px solid #000; /* Maintain the same border */
+    margin-right: 10px;
 }
 
 .contact-content h4 {
@@ -660,6 +669,7 @@
     padding: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.9);
 }
+
 
         ::-webkit-scrollbar {
             width: 12px;
