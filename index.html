@@ -218,7 +218,7 @@
 
         }
 
-   
+
 
         .specialization .card {
             flex: none;
@@ -235,17 +235,22 @@
         }
 
         .specialization::after {
-    content: "";
-    display: block;
-    width: 0.5px; /* Adjust the width to create space */
-    flex: none; /* Ensure it doesn’t shrink */
-}
+            content: "";
+            display: block;
+            width: 0.5px;
+            /* Adjust the width to create space */
+            flex: none;
+            /* Ensure it doesn’t shrink */
+        }
 
         .specialization .card:hover {
-    transform: scale(1.05); /* Enlarge the card slightly */
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for a nice effect */
-    z-index: 5; /* Ensure it appears above other cards */
-}
+            transform: scale(1.05);
+            /* Enlarge the card slightly */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            /* Add a shadow for a nice effect */
+            z-index: 5;
+            /* Ensure it appears above other cards */
+        }
 
         .card h3 {
             font-size: 1.6em;
@@ -506,7 +511,7 @@
             gap: 8px;
             margin-bottom: 10px;
             position: relative;
-            
+
             top: -15px;
             /* Moves content higher */
         }
@@ -547,10 +552,11 @@
             font-size: 1.5em;
         }
 
-.testimonies-container, .specialization-container {
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
-}
+        .testimonies-container,
+        .specialization-container {
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 1%, black 99%, transparent);
+        }
 
 
 
@@ -798,13 +804,12 @@
                         <video src="your-project-video-url" controls></video>
                         <p>Brief description of the project.</p>
                     </div>
-                    <div class="hidden">
-                    <div class="card"></div>
-                        <h4>Project Title 4</h4>
+                    <div class="card hidden">
+                        <h4>Project Title 3</h4>
                         <video src="your-project-video-url" controls></video>
                         <p>Brief description of the project.</p>
                     </div>
-                    </div>
+                </div>
 
                 <!-- Disclaimer Box -->
                 <div id="disclaimer-box" class="disclaimer">
@@ -817,7 +822,7 @@
                 </div>
 
             </div> <!-- Correct closing for portfolio section -->
-            
+
 
         </div> <!-- Correct closing for past works section -->
         <button id="load-more">Load More</button>
