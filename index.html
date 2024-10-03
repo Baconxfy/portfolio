@@ -581,27 +581,27 @@
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
-/* Contact Card Styling */
+/* Contact Section Styles */
 .contact-cards {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* Space between the cards */
+    margin-top: 20px;
+    width: 100%;  /* Ensure the container is full width */
 }
 
 .contact-card {
-    padding: 20px;
+    width: 80%; /* Adjust this percentage for the width of the cards */
+    max-width: 700px; /* Larger max-width for longer cards on the X-axis */
     background-color: #333;
     border: 3px solid #525252;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    padding: 20px;
     border-radius: 15px;
     background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-align: left;
-    justify-content: flex-start;
 }
 
 .contact-card:hover {
@@ -609,28 +609,30 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Profile Picture Styling */
+/* Styling for the Profile Picture, Username, and Logo */
 .contact-content {
     display: flex;
     align-items: center;
-    gap: 10px; /* Keeps profile picture, username, and logo on the same line */
+    justify-content: flex-start; /* Aligns content to the left */
+    gap: 10px;
+    width: 100%;
 }
 
-/* Styling for the Profile Picture */
+/* Profile Picture Styling */
 .contact-content .profile-pic {
     border-radius: 50%;
-    width: 50px;
+    width: 50px;  /* Adjust the size */
     height: 50px;
     border: 2px solid #000;
 }
 
-/* Styling for the Username and Logo */
+/* Username and Logo */
 .contact-content h4 {
     color: #66b3ff;
     font-size: 1.6em;
     font-weight: bold;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
-    margin: 0; /* Keeps everything neatly aligned */
+    margin: 0; /* Keeps alignment inline */
 }
 
 .contact-content .link-icon {
@@ -639,30 +641,6 @@
     margin-left: 10px;
 }
 
-/* Removing the blue underline from links */
-.contact-content a {
-    text-decoration: none;
-    border-bottom: none;
-}
-
-.contact-content a:hover {
-    text-decoration: none;
-}
-
-/* Username and Logo Styling */
-.contact-content h4 {
-    color: #66b3ff;
-    font-size: 1.6em;
-    font-weight: bold;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
-    margin: 0;
-}
-
-.contact-content .link-icon {
-    width: 35px; /* Adjust size */
-    height: 35px;
-    margin-left: 10px;
-}
 
 /* Remove blue underline */
 .contact-content a {
