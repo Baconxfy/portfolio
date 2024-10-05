@@ -864,6 +864,138 @@
             scrollbar-color: #66b3ff transparent;
 
         }
+        @media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about-text {
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .about-cards {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-text h2 {
+        align-items: flex-start;
+    }
+
+    #disclaimer-box {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .specialization {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+
+    .specialization .card {
+        width: calc(80% - 10px);
+        max-width: 200px;
+        flex: none;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-content .profile-pic1,
+    .contact-content .profile-pic2 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .about-cards .card {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    video#background-video {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .testimonies-container {
+        flex-wrap: nowrap;
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .testimony-card {
+        width: 90%;
+        max-width: 320px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .testimony-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-direction: row;
+        text-align: left;
+        width: 100%;
+    }
+
+    .testimony-content h4 {
+        font-size: 1.2em;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        margin-top: 7px;
+        margin-right: -2px;
+        flex-shrink: 0;
+    }
+
+    .link-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        flex-shrink: 0;
+    }
+
+    .testimony-quote {
+        font-size: 1em;
+    }
+
+    #blur-background {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    #blur-background .card {
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+
     </style>
     <script>
 
