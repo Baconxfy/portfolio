@@ -13,7 +13,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - Dark Mode</title>
+
+    <meta property="og:title" content="Baconxfy's Portfolio">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://baconxfy.github.io/portfolio>
+    <meta property="og:image" content="https://i.imgur.com/TVQfWcx.png">
+    <meta property="og:description" content="My Roblox Scripting Portfolio">
+    <meta property="og:site_name" content="Baconxfy's Portfolio">
+    <title>Baconxfy's Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
 
@@ -573,7 +580,7 @@
             /* Increased size */
             height: 90px;
             border: 3.5px solid #000;
-            margin-right: 10px;
+            margin-right: px;
         }
 
         .testimony-content {
@@ -786,6 +793,8 @@
             /* Aligns content to the left */
             gap: 10px;
             width: 100%;
+            flex-direction: row-reverse;
+            
         }
 
         /* Profile Picture Styling */
@@ -817,9 +826,10 @@
         }
 
         .contact-content .link-icon {
-            width: 35px;
-            height: 35px;
-            margin-left: 10px;
+            width: 50px;
+            height: 50px;
+            margin-left: 3px;
+
         }
 
 
@@ -993,7 +1003,13 @@
         padding: 20px;
         box-sizing: border-box;
     }
+
+    .contact-content {
+        flex-direction: row; /* Swap positions of the logo and profile picture */
+    }
 }
+
+
 
 
     </style>
@@ -1088,7 +1104,7 @@
 
     <div class="container">
         <div class="header">
-            <img src="https://i.imgur.com/RoCTSRD.png" alt="Your Photo">
+            <img src="https://i.imgur.com/TVQfWcx.png" alt="Your Photo">
             <h1>Baconxfy</h1>
             <p>A Roblox Scripter With 5 Years Of Experience</p>
         </div>
@@ -1236,7 +1252,7 @@
             <div class="testimonies-container">
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1253,7 +1269,7 @@
                 </div>
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1270,7 +1286,7 @@
                 </div>
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1287,7 +1303,7 @@
                 </div>
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1304,7 +1320,7 @@
                 </div>
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1321,7 +1337,7 @@
                 </div>
                 <div class="testimony-card">
                     <div class="testimony-content">
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024"
+                        <img src="https://i.imgur.com/TVQfWcx.png"
                             alt="Profile Picture" class="profile-pic">
                         <h4>baconxfy
                             <a href="https://discord.com/users/981175234449260595" target="_blank">
@@ -1349,15 +1365,15 @@
                 <!-- First Contact Card -->
                 <div class="contact-card" onclick="window.open('https://discord.com/users/981175234449260595', '_blank')">
                     <div class="contact-content">
-                        <img src="https://i.imgur.com/3u12rB5.png" alt="link icon" style="width: 50px; height: 50px;">
+                        <img src="https://i.imgur.com/3u12rB5.png" alt="link icon" class="link-icon">
                         <h4>baconxfy (BaconxfyOnYT)</h4>
-                        <img src="https://cdn.discordapp.com/avatars/981175234449260595/ea448fafd68d02fbee0337cab361a7db.png?size=1024" alt="Profile Picture" class="profile-pic1">
+                        <img src="https://i.imgur.com/TVQfWcx.png" alt="Profile Picture" class="profile-pic1">
                     </div>
                 </div>
                 
                 <div class="contact-card" onclick="window.open('https://discord.com/users/someotherid', '_blank')">
                     <div class="contact-content">
-                        <img src="https://static.wikia.nocookie.net/robloxcities/images/d/d2/RobloxLogo.png" alt="link icon" style="width: 50px; height: 50px;">
+                        <img src="https://static.wikia.nocookie.net/robloxcities/images/d/d2/RobloxLogo.png" alt="link icon" class="link-icon">
                         <h4>Baconxfy (Sub2BaconxfyYT)</h4>
                         <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-A3EA115DDD403DABA8A40CCB6F18E92A-Png/150/150/AvatarHeadshot/Webp/noFilter" alt="Profile Picture" class="profile-pic2">
                     </div>
