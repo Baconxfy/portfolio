@@ -17,9 +17,13 @@
     <meta property="og:title" content="Baconxfy's Portfolio">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://baconxfy.github.io/portfolio">
-    <meta property="og:image" content="https://i.imgur.com/TVQfWcx.png">
+    <meta property="og:image" content="https://i.imgur.com/cHdCNxU.png">
     <meta property="og:description" content="My Roblox Scripting Portfolio">
     <meta property="og:site_name" content="Baconxfy's Portfolio">
+
+    <link rel="icon" href="https://i.imgur.com/cHdCNxU.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://i.imgur.com/cHdCNxU.png" type="image/x-icon">
+
     <title>Baconxfy's Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
@@ -321,9 +325,61 @@
         }
 
         .card p {
-            font-size: 1.1em;
+            font-size: 1.1em ;
             font-weight: bold;
         }
+
+        .pastworkcard {
+    border-radius: 15px;
+    padding: 20px;
+    color: #f0f0f0;
+    text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/3px-tile.png');
+    border: 3px solid #525252;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    background-color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Make the card a flex container */
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: flex-start; /* Align items at the start */
+    align-items: center; /* Center items horizontally */
+    max-width: 100%; /* Ensure the card does not exceed its parent width */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.pastworkcard:hover{
+    transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+}
+
+.pastworktitle {
+    font-size: 1.4em; /* Default font size */
+    margin-bottom: 25px;
+    margin-top: 5px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    color: #66b3ff;
+    overflow: hidden; /* Prevents text from overflowing the card */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    text-overflow: ellipsis; /* Adds "..." if the text overflows */
+    max-width: 100%; /* Ensure the title does not exceed the card width */
+    flex: 0 1 auto; /* Prevents the title from growing the card */
+    min-width: 0; /* Allow title to shrink */
+}
+
+.pastworkdescription {
+    font-size: clamp(1em, 0.7vw, 1.2em); /* Dynamically adjust font size */
+    overflow: hidden; /* Prevents text from overflowing the card */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+    text-overflow:ellipsis; /* Adds "..." if the text overflows */
+    max-height: 30px; /* Restrict the height of the description */
+    margin: 10px 0;
+    max-width: 100%; /* Ensure the description does not exceed the card width */
+    flex: 0 1 auto; /* Prevents the description from growing the card */
+    font-weight: bold;
+    min-width: 0; /* Allow description to shrink */
+}
+
 
         .hidden {
             display: none;
@@ -451,6 +507,13 @@
             z-index: 1;
         }
 
+        .portfolio-video {
+    border-radius: 10px; /* Rounded corners */
+    border: 3px solid #525252; /* Border to match the theme */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1); /* Shadow effect */
+    
+}
+
         .section-header {
             font-size: 2em;
             color: #66b3ff;
@@ -475,6 +538,8 @@
             text-align: left;
             text-shadow: -2px -2px 0 #000, 2px -2px 0 #000;
         }
+
+
 
         .card {
             border-radius: 15px;
@@ -540,6 +605,7 @@
             display: flex;
             animation: scroll 20s linear infinite;
         }
+        
 
         @keyframes scroll {
             from {
@@ -832,6 +898,8 @@
 
         }
 
+        
+
 
         /* Remove blue underline */
         .contact-content a {
@@ -1035,6 +1103,14 @@
 
                 const astTime = atlanticTime.toLocaleTimeString('en-US', options);
                 timezoneElement.textContent = `My Local Time: ${astTime} AST`;
+
+                document.getElementById("disclaimer-checkbox").addEventListener('click', function () {
+        if (this.checked) {
+            togglePortfolio(); // If checked, toggle the portfolio
+        } else {
+            this.checked = true; // Keep it checked
+        }
+    });
             }
 
             setInterval(updateTime, 1000); // Update every second
@@ -1076,7 +1152,7 @@
             document.getElementById('load-more').addEventListener('click', function () {
                 console.log('Load more clicked'); // Debugging
 
-                const hiddenCards = document.querySelectorAll('.portfolio .card.hidden');
+                const hiddenCards = document.querySelectorAll('.portfolio .pastworkcard.hidden');
                 console.log('Hidden cards before:', hiddenCards.length); // Debugging
 
                 for (let i = 0; i < 3 && i < hiddenCards.length; i++) {
@@ -1085,9 +1161,9 @@
                     hiddenCards[i].style.animation = 'fadeIn 0.5s ease'; // Optional fade-in animation
                 }
 
-                console.log('Hidden cards after:', document.querySelectorAll('.portfolio .card.hidden').length); // Debugging
+                console.log('Hidden cards after:', document.querySelectorAll('.portfolio .pastworkcard.hidden').length); // Debugging
 
-                if (document.querySelectorAll('.portfolio .card.hidden').length === 0) {
+                if (document.querySelectorAll('.portfolio .pastworkcard.hidden').length === 0) {
                     this.style.display = 'none'; // Hide the button when no more items are left
                 }
             });
@@ -1184,46 +1260,44 @@
             <div id="portfolio-section" class="portfolio">
                 <div id="blur-background"> <!-- Wrap blur content -->
                     <!-- Past work cards -->
-                    <div class="card">
-                        <h4>Project Title 1</h4>
-                        <img src="your-project-image-url" alt="Project 1">
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard">
+                        <h4 class="pastworktitle">Project Title 1</h4>
+                        <iframe class="portfolio-video" src="https://drive.google.com/file/d/1yHrg0cHO_GQDQhlSjARw4rMtaNLCdSaJ/preview" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project</p>
                     </div>
-                    <div class="card">
-                        <h4>Project Title 2</h4>
-                        <img src="your-project-image-url" alt="Project 2">
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard">
+                        <h4 class="pastworktitle">Project Title 2</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card">
-                        <h4>Project Title 3</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard">
+                        <h4 class="pastworktitle">Project Title 3</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card hidden">
-                        <h4>Project Title 4</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
+                   
+                    <div class="pastworkcard hidden">
+                        <h4 class="pastworktitle">Project Title 4</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card hidden">
-                        <h4>Project Title 4</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard hidden">
+                        <h4 class="pastworktitle">Project Title 5</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card hidden">
-                        <h4>Project Title 4</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard hidden">
+                        <h4 class="pastworktitle">Project Title 6</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card hidden">
-                        <h4>Project Title 4</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
+                    <div class="pastworkcard hidden">
+                        <h4 class="pastworktitle">Project Title 7</h4>
+                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
-                    <div class="card hidden">
-                        <h4>Project Title 4</h4>
-                        <video src="your-project-video-url" controls></video>
-                        <p>Brief description of the project.</p>
-                    </div>
+                    
+                 
                 </div>
 
                 <!-- Disclaimer Box -->
@@ -1387,6 +1461,7 @@
 
 
         <script>
+            
             // Firebase configuration
             var firebaseConfig = {
                 apiKey: "AIzaSyC_JlYWIfLoqVE-9W4qrFlrHsktXw_rSzA",
