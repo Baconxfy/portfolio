@@ -24,6 +24,12 @@
     <link rel="icon" href="https://i.imgur.com/cHdCNxU.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://i.imgur.com/cHdCNxU.png" type="image/x-icon">
 
+    <!-- AOS CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<!-- AOS JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
     <title>Baconxfy's Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
@@ -127,7 +133,9 @@
             border-left: 5px solid #66b3ff;
             top: -17px
         }
-
+        .uninteractable {
+    pointer-events: none; /* Prevents interaction */
+}
         /* About Section Title Emoji */
 .about-text h2::before {
     content: "📖"; /* Replace with the emoji of your choice */
@@ -897,9 +905,37 @@
             margin-left: 3px;
 
         }
+        .fade-in {
+    animation: fadeInAnimation 1.5s ease-in-out;
+}
 
+@keyframes fadeInAnimation {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
         
+   #scrollProgressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background: linear-gradient(to right,#ff4444, #66b3ff);
+    width: 0;
+    z-index: 9999;
+    transition: width 0.2s ease-out;
+}
 
+@media (max-width: 768px) {
+    #scrollProgressBar {
+        height: 4px; /* Reduced height for mobile devices */
+    }
+}
+
+@media (max-width: 480px) {
+    #scrollProgressBar {
+        height: 2px; /* Further reduced height for smaller devices */
+    }
+}
 
         /* Remove blue underline */
         .contact-content a {
@@ -969,6 +1005,7 @@
     #disclaimer-box {
         width: 90%;
         max-width: 400px;
+        margin-top: -250px !important;
     }
 
     .specialization {
@@ -987,12 +1024,25 @@
     .contact-content {
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
 
     .contact-content .profile-pic1,
     .contact-content .profile-pic2 {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .contact-content h4 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    .contact-content .link-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 5px;
     }
 
     .about-cards .card {
@@ -1072,8 +1122,18 @@
         box-sizing: border-box;
     }
 
-    .contact-content {
-        flex-direction: row; /* Swap positions of the logo and profile picture */
+    /* Make past work videos responsive */
+    .portfolio-video {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-bottom: 20px;
+    }
+
+    .contact-card {
+        width: 90%;
+        max-width: 500px;
     }
 }
 
@@ -1083,8 +1143,18 @@
     </style>
     <script>
 
-        document.addEventListener('DOMContentLoaded', function () {
-            var checkbox = document.getElementById("disclaimer-checkbox");
+document.addEventListener('scroll', function () {
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+    scrollProgressBar.style.width = scrollPercentage + '%';
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+        var checkbox = document.getElementById("disclaimer-checkbox");
+            var iframes = document.querySelectorAll('.portfolio-video');
             checkbox.checked = false; // Uncheck the box by default on load
             function updateTime() {
                 const timezoneElement = document.getElementById('timezone');
@@ -1097,16 +1167,16 @@
                 const options = {
                     hour: '2-digit',
                     minute: '2-digit',
-                    second: '2-digit',
                     hour12: true
                 };
 
                 const astTime = atlanticTime.toLocaleTimeString('en-US', options);
-                timezoneElement.textContent = `My Local Time: ${astTime} AST`;
+                timezoneElement.innerHTML =  `My Local Time: <span style="color: #66b3ff;">${astTime} AST</span> (Atlantic Standard Time)`;
 
                 document.getElementById("disclaimer-checkbox").addEventListener('click', function () {
         if (this.checked) {
             togglePortfolio(); // If checked, toggle the portfolio
+            iframes.forEach(iframe => iframe.classList.remove('uninteractable'));
         } else {
             this.checked = true; // Keep it checked
         }
@@ -1173,12 +1243,13 @@
 </head>
 
 <body>
+    <div id="scrollProgressBar"></div>
     <video autoplay muted loop id="background-video">
         <source src="https://motionbgs.com/media/703/roblox.960x540.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <div class="container">
+    <div class="container fade-in" >
         <div class="header">
             <img src="https://i.imgur.com/TVQfWcx.png" alt="Your Photo">
             <h1>Baconxfy</h1>
@@ -1188,21 +1259,19 @@
         <div class="section about">
             <div class="about-text">
                 <h2>About Me</h2>
-                <p class="about-description"><strong>I am a dedicated Roblox scripter with 5 years of experience in creating immersive and
-                         interactive games. My expertise lies in developing complex systems that enhance gameplay,
-                        including combat mechanics, UI scripting, and game state management.</strong></p>
+                <p class="about-description"><strong>Hey, I'm Baconxfy, a Roblox scripter with over 5 years of experience in game development and Lua programming. I do both front-end and back-end work and I can do pretty much anything when it comes to scripting in Roblox. I'm also proficient in JavaScript, Python and HTML/CSS (I scripted this portfolio myself). I understand advanced scripting concepts such as OOP and I'm also familiar with Knit Framework.</strong></p>
             </div>
             <div class="about-cards">
                 <div class="card">
-                    <h3>Timezone</h3>
+                    <h3>🌎 Timezone</h3>
                     <p id="timezone">My Local Time: </p>
                 </div>
                 <div class="card">
-                    <h3>Payment</h3>
-                    <p>Available Upon Request</p>
+                    <h3>💰 Payment</h3>
+                    <p>I accept both <span style="color: #66b3ff;">Robux</span> and <span style="color: #ff4444;">USD</span> and I'm happy to negotiate.</p>
                 </div>
                 <div class="card">
-                    <h3>Ratings</h3>
+                    <h3>⭐ Ratings</h3>
                     <div class="rating">
                         <span class="star" data-value="1">&#9733;</span>
                         <span class="star" data-value="2">&#9733;</span>
@@ -1218,7 +1287,7 @@
         </div>
 
         <div class="section">
-            <h2 class="specialization-text">My Specializations</h2>
+            <h2 class="specialization-text">Specializations</h2>
             <div class="specialization-container">
                 <div class="specialization">
                     <div class="card">
@@ -1262,38 +1331,38 @@
                     <!-- Past work cards -->
                     <div class="pastworkcard">
                         <h4 class="pastworktitle">Project Title 1</h4>
-                        <iframe class="portfolio-video" src="https://drive.google.com/file/d/1yHrg0cHO_GQDQhlSjARw4rMtaNLCdSaJ/preview" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="https://drive.google.com/file/d/1yHrg0cHO_GQDQhlSjARw4rMtaNLCdSaJ/preview" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project</p>
                     </div>
                     <div class="pastworkcard">
                         <h4 class="pastworktitle">Project Title 2</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                     <div class="pastworkcard">
                         <h4 class="pastworktitle">Project Title 3</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                    
                     <div class="pastworkcard hidden">
                         <h4 class="pastworktitle">Project Title 4</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                     <div class="pastworkcard hidden">
                         <h4 class="pastworktitle">Project Title 5</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                     <div class="pastworkcard hidden">
                         <h4 class="pastworktitle">Project Title 6</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                     <div class="pastworkcard hidden">
                         <h4 class="pastworktitle">Project Title 7</h4>
-                        <iframe class="portfolio-video" src="" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="portfolio-video uninteractable" src="" allowfullscreen allow="autoplay"></iframe>
                         <p class="pastworkdescription">Brief description of the project.</p>
                     </div>
                     
@@ -1433,7 +1502,7 @@
 
         <!-- Contact Section starts after past works -->
         <div class="section contact">
-            <h2 class="section-header">Contact Information</h2>
+            <h2 class="section-header">Contact</h2>
 
             <div class="contact-cards">
                 <!-- First Contact Card -->
@@ -1607,6 +1676,7 @@
                 });
             });
 
+    
 
 
         </script>
