@@ -914,7 +914,7 @@
     100% { opacity: 1; transform: translateY(0); }
 }
         
-   #scrollProgressBar {
+#scrollProgressBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -923,7 +923,10 @@
     width: 0;
     z-index: 9999;
     transition: width 0.2s ease-out;
+    border-radius: 2.5px;
+    box-shadow: 0 0 15px #66b3ff, 0 0 25px #ff4444; /* Adds glowing effect */
 }
+
 
 @media (max-width: 768px) {
     #scrollProgressBar {
@@ -1143,6 +1146,18 @@
     </style>
     <script>
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize AOS for scroll animations
+    AOS.init({
+        duration: 500, // Animation duration in milliseconds
+        easing: 'ease-in-out', // Easing style for animations
+        once: true,// Whether animation should happen only once or every time an element is in view
+        offset: 0,
+    });
+});
+
+
 document.addEventListener('scroll', function () {
     const scrollProgressBar = document.getElementById('scrollProgressBar');
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -1238,6 +1253,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+        AOS.refresh();
 
     </script>
 </head>
@@ -1249,29 +1265,29 @@ document.addEventListener('DOMContentLoaded', function () {
         Your browser does not support the video tag.
     </video>
 
-    <div class="container fade-in" >
+    <div class="container fade-in">
         <div class="header">
             <img src="https://i.imgur.com/TVQfWcx.png" alt="Your Photo">
             <h1>Baconxfy</h1>
             <p>A Roblox Scripter With 5 Years Of Experience</p>
         </div>
 
-        <div class="section about">
+        <div class="section about" data-aos="fade"  data-aos-delay="100">
             <div class="about-text">
                 <h2>About Me</h2>
-                <p class="about-description"><strong>Hey, I'm Baconxfy, a Roblox scripter with over 5 years of experience in game development and Lua programming. I do both front-end and back-end work and I can do pretty much anything when it comes to scripting in Roblox. I'm also proficient in JavaScript, Python and HTML/CSS (I scripted this portfolio myself). I understand advanced scripting concepts such as OOP and I'm also familiar with Knit Framework.</strong></p>
+                <p class="about-description"><strong>Hey, I'm <span style="color: #66b3ff;">Baconxfy</span>, a Roblox scripter with over 5 years of experience in game development and Lua programming. I do both front-end and back-end work and I can do pretty much anything when it comes to scripting in Roblox. I'm also proficient in JavaScript, Python and HTML/CSS (I scripted this portfolio myself). I understand advanced scripting concepts such as OOP and I'm also familiar with Knit Framework.</strong></p>
             </div>
-            <div class="about-cards">
+            <div class="about-cards" >
                 <div class="card">
-                    <h3>🌎 Timezone</h3>
+                    <h3><span style="text-shadow: none;">🌎</span> Timezone</h3>
                     <p id="timezone">My Local Time: </p>
                 </div>
                 <div class="card">
-                    <h3>💰 Payment</h3>
-                    <p>I accept both <span style="color: #66b3ff;">Robux</span> and <span style="color: #ff4444;">USD</span> and I'm happy to negotiate.</p>
+                    <h3><span style="text-shadow: none;">💰</span> Payment</h3>
+                    <p>I accept both <span style="color: #66b3ff;">Robux</span> and <span style="color: #66b3ff;">USD</span> and I'm always happy to negotiate</p>
                 </div>
                 <div class="card">
-                    <h3>⭐ Ratings</h3>
+                    <h3><span style="text-shadow: none;">⭐</span> Ratings</h3>
                     <div class="rating">
                         <span class="star" data-value="1">&#9733;</span>
                         <span class="star" data-value="2">&#9733;</span>
@@ -1286,7 +1302,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" data-aos="fade">
             <h2 class="specialization-text">Specializations</h2>
             <div class="specialization-container">
                 <div class="specialization">
@@ -1323,11 +1339,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        <div class="section">
+        <div class="section" data-aos="fade">
             <h2 class="pastwork-header">Past Works</h2> <!-- Header remains visible and unaffected by blur -->
 
             <div id="portfolio-section" class="portfolio">
-                <div id="blur-background"> <!-- Wrap blur content -->
+                <div id="blur-background" > <!-- Wrap blur content -->
                     <!-- Past work cards -->
                     <div class="pastworkcard">
                         <h4 class="pastworktitle">Project Title 1</h4>
@@ -1390,7 +1406,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div> <!-- Correct closing for past works section -->
         <button id="load-more">Load More</button>
 
-        <div class="section">
+        <div class="section" data-aos="fade">
             <h2 class="testimony-header">Testimonies</h2>
             <div class="testimonies-container">
                 <div class="testimony-card">
@@ -1501,7 +1517,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
 
         <!-- Contact Section starts after past works -->
-        <div class="section contact">
+        <div class="section contact" data-aos="fade">
             <h2 class="section-header">Contact</h2>
 
             <div class="contact-cards">
